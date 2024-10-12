@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Proyecto_Final.ConexionDatos;
+using Proyecto_Final.Paginas;
 
 namespace Proyecto_Final
 {
@@ -17,6 +18,7 @@ namespace Proyecto_Final
                 });
             builder.Services.AddSingleton<IRestConexionDatos, RestConexionDatos>();
             builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddTransient<GestionPlatosPage>();
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
