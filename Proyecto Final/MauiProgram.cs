@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Proyecto_Final.ConexionDatos;
 
 namespace Proyecto_Final
 {
@@ -14,7 +15,8 @@ namespace Proyecto_Final
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
-
+            builder.Services.AddSingleton<IRestConexionDatos, RestConexionDatos>();
+            builder.Services.AddSingleton<MainPage>();
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif

@@ -1,25 +1,34 @@
-﻿namespace Proyecto_Final
+﻿using Proyecto_Final.ConexionDatos;
+using System.Diagnostics;
+
+namespace Proyecto_Final
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        private readonly IRestConexionDatos conexionDatos;
 
-        public MainPage()
+        public MainPage(IRestConexionDatos conexionDatos)
         {
             InitializeComponent();
+            this.conexionDatos = conexionDatos;
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        protected async override void OnAppearing()
+        { 
+            base.OnAppearing();
+            //menuPlatosView.ItemsSourse = await conexionDatos.GetPlatosAsync():
+        }
+        //Evento Añadir Plato
+        async void OnAddPlatoClic(Object sender, EventArgs e)
         {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            Debug.WriteLine("[EVENTO] Botón AddPlato clicleado");
         }
+        //Evento Click Sobre el Nombre del Plato de la lista para Editar
+        async void OnUpdatePlatoClic(Object sender, SelectionChangedEventArgs e)
+        {
+            Debug.WriteLine("[EVENTO] Botón Seleccionado clicleado");
+        }
+
     }
 
 }
