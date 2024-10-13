@@ -11,8 +11,10 @@
     <VerticalStackLayout>
         <Label Text="ELIGE TU ACCIÓN"/>
         <Entry Placeholder="Introduzca el Nombre del Plato" Text="{Binding Path=plato.Nombre}"/>
+        <Entry Placeholder="Introduzca los ingredientes del Plato" Text="{Binding Path=plato.Ingredientes}"/>
+        <Entry Placeholder="Introduzca el Precio del Plato" Text="{Binding Path=plato.Precio,StringFormat='Precio: Bs. {0:F2} '}"/>
         <Button Text="Eliminar" Clicked="OnEliminarClic"/>
         <Button Text="Cancelar" Clicked="OnCancelClic"/>
-        <Button Text="Eliminar" Clicked="OnGuardarClic"/>
+        <Button Text="Grabar" Clicked="OnGuardarClic"/>
     </VerticalStackLayout>
 </ContentPage>
